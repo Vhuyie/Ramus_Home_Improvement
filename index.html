@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Build & Pump</title>
+
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+      font-family:'Montserrat', sans-serif;
+    }
+
+    :root{
+  --primary:#C1EB99;
+  --accent:#C1EB99;
+  --dark:#000000;
+  --light:#f3f3f3;
+  --white:#ffffff;
+}
+
+    body{
+      background:#fff;
+      overflow-x:hidden;
+    }
+
+    /* =========================
+        HEADER
+    ========================== */
+
+    header{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      background:#111;
+      z-index:1000;
+      border-bottom:4px solid var(--accent);
+      padding:20px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .logo{
+      color:#fff;
+      font-size:28px;
+      font-weight:800;
+      line-height:1.1;
+    }
+
+    .logo span{
+      color:var(--primary);
+      font-size:14px;
+      display:block;
+      margin-top:5px;
+    }
+
+    nav a{
+      color:#fff;
+      text-decoration:none;
+      margin-left:30px;
+      font-size:14px;
+      font-weight:700;
+      text-transform:uppercase;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:var(--accent);
+    }
+
+    /* =========================
+    HOME SECTION
+========================= */
+
+.hero{
+  height:100vh;
+ 
+  background: 
+    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+    url('images/WhatsApp Image 2026-06-17 at 01.37.02.jpeg');
+    
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  position:relative;
+  animation:slider 18s infinite;
+  padding:20px;
+}
+
+/* DARK OVERLAY */
+
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.1);
+}
+
+/* CONTENT */
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:800px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+/* MAIN TITLE */
+
+.hero-content h1{
+  font-size:65px;
+  font-weight:800;
+  text-transform:uppercase;
+  margin-bottom:15px;
+  color:#fff;
+  line-height:1.1;
+  text-align:center;
+}
+
+/* SUBTITLE */
+
+.hero-content p{
+  color:var(--primary);
+  font-size:22px;
+  margin-bottom:35px;
+  text-align:center;
+}
+
+/* BUTTON */
+
+.hero-btn{
+  background:var(--primary);
+  color:#000;
+  text-decoration:none;
+  padding:16px 40px;
+  font-weight:700;
+  text-transform:uppercase;
+  transition:0.3s;
+  display:inline-block;
+}
+
+.hero-btn:hover{
+  background:#fff;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .hero-content h1{
+    font-size:42px;
+  }
+
+  .hero-content p{
+    font-size:18px;
+  }
+
+}
+
+
+
+    /* =========================
+        SECTION TITLE
+    ========================== */
+
+    section{
+      padding:100px 8%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .section-title h2{
+      font-size:50px;
+      color:#111;
+      text-transform:uppercase;
+      font-weight:800;
+      margin-bottom:15px;
+    }
+
+    .section-title p{
+      color:#777;
+      max-width:800px;
+      margin:auto;
+      line-height:1.8;
+    }
+
+    /* =========================
+        ABOUT
+    ========================== */
+
+    .about{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:50px;
+      align-items:center;
+    }
+
+    .about img{
+      width:100%;
+      border-radius:10px;
+    }
+
+    .about-text h3{
+      font-size:35px;
+      margin-bottom:20px;
+      color:#111;
+    }
+
+    .about-text p{
+      color:#666;
+      line-height:1.9;
+      margin-bottom:20px;
+    }
+
+    /* =========================
+        PROJECTS
+    ========================== */
+
+    #projects{
+      background:
+      repeating-linear-gradient(
+      45deg,
+      #f5f5f5,
+      #f5f5f5 10px,
+      #f0f0f0 10px,
+      #f0f0f0 20px
+      );
+    }
+
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+      gap:40px;
+    }
+
+    .project-card{
+      background:#fff;
+      padding:40px;
+      border-left:6px solid var(--accent);
+      box-shadow:0 5px 20px rgba(0,0,0,0.08);
+      transition:0.3s;
+    }
+
+    .project-card:hover{
+      transform:translateY(-10px);
+    }
+
+    .project-card h3{
+      font-size:35px;
+      color:#111;
+      margin-bottom:25px;
+    }
+
+    .project-card p{
+      color:#666;
+      line-height:1.9;
+      margin-bottom:30px;
+    }
+
+    .project-tags span{
+      background:#111;
+      color:var(--accent);
+      padding:12px 18px;
+      display:inline-block;
+      margin:10px 10px 0 0;
+      font-weight:700;
+      text-transform:uppercase;
+      font-size:13px;
+    }
+
+/* =========================
+    NEW GALLERY
+========================= */
+#gallery{
+  background:#dff7c8;
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:25px;
+}
+
+.gallery-card{
+  position:relative;
+  overflow:hidden;
+  height:300px;
+  cursor:pointer;
+}
+
+.gallery-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:0.5s;
+}
+
+.gallery-card:hover img{
+  transform:scale(1.1);
+}
+
+.gallery-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  transition:0.4s;
+}
+
+.gallery-card:hover .gallery-overlay{
+  opacity:1;
+}
+
+.gallery-overlay h3{
+  color:#fff;
+  font-size:32px;
+  text-transform:uppercase;
+  font-weight:800;
+  text-align:center;
+}
+
+/* LIGHTBOX */
+
+.lightbox{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100vh;
+  background:rgba(0,0,0,0.95);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+.lightbox.active{
+  display:flex;
+}
+
+.lightbox img{
+  width:80%;
+  max-width:1000px;
+  height:75vh;
+  object-fit:cover;
+}
+
+.close-btn{
+  position:absolute;
+  top:20px;
+  right:40px;
+  color:#fff;
+  font-size:55px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.prev,
+.next{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:60px;
+  height:60px;
+  border:none;
+  background:var(--primary);
+  color:#000;
+  font-size:28px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.prev{
+  left:30px;
+}
+
+.next{
+  right:30px;
+}
+    /* =========================
+        TEAM
+    ========================== */
+
+    #team{
+      background:#111;
+    }
+
+    #team .section-title h2{
+      color:#fff;
+    }
+
+    #team .section-title p{
+      color:#ccc;
+    }
+
+    .team-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .team-card{
+      background:#1b1b1b;
+      text-align:center;
+      overflow:hidden;
+      transition:0.3s;
+    }
+
+    .team-card:hover{
+      transform:translateY(-10px);
+    }
+
+    .team-card img{
+      width:100%;
+      height:320px;
+      object-fit:cover;
+    }
+
+    .team-content{
+      padding:30px;
+    }
+
+    .team-content h3{
+      color:#fff;
+      margin-bottom:10px;
+    }
+
+    .team-content p{
+      color:var(--primary);
+    }
+
+    /* =========================
+        CONTACT
+    ========================== */
+
+    #contact{
+      background:
+      repeating-linear-gradient(
+      45deg,
+      #f5f5f5,
+      #f5f5f5 10px,
+      #f0f0f0 10px,
+      #f0f0f0 20px
+      );
+    }
+
+    .contact-wrapper{
+      display:grid;
+      grid-template-columns:2fr 1fr;
+      gap:40px;
+    }
+
+    .contact-form{
+      background:#fff;
+      padding:40px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.08);
+      border-top:4px solid var(--accent);
+    }
+
+    .contact-form h3{
+      margin-bottom:30px;
+      font-size:30px;
+      color:#111;
+      text-transform:uppercase;
+    }
+
+    form input,
+    form textarea{
+      width:100%;
+      padding:16px;
+      margin-bottom:20px;
+      border:1px solid #ccc;
+      outline:none;
+      font-size:15px;
+    }
+
+    form button{
+      background:var(--accent);
+      color:#fff;
+      border:none;
+      padding:16px 40px;
+      font-weight:700;
+      text-transform:uppercase;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    form button:hover{
+      background:#111;
+    }
+
+    .contact-box{
+      background:#fff;
+      padding:30px;
+      margin-bottom:20px;
+      border-left:4px solid var(--accent);
+      box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    .contact-box h4{
+      font-size:22px;
+      margin-bottom:15px;
+      color:#111;
+      text-transform:uppercase;
+    }
+
+    .contact-box p{
+      color:#666;
+      line-height:1.8;
+    }
+
+    iframe{
+      width:100%;
+      height:250px;
+      border:none;
+      margin-top:15px;
+    }
+
+    /* =========================
+        FOOTER
+    ========================== */
+
+    footer{
+      background:#111;
+      color:#fff;
+      text-align:center;
+      padding:30px;
+    }
+
+    /* =========================
+        MOBILE
+    ========================== */
+
+    @media(max-width:900px){
+
+      header{
+        flex-direction:column;
+      }
+
+      nav{
+        margin-top:20px;
+      }
+
+      nav a{
+        margin:0 10px;
+        font-size:12px;
+      }
+
+      .hero-content h1{
+        font-size:55px;
+      }
+
+      .hero-content p{
+        font-size:20px;
+      }
+
+      .contact-wrapper{
+        grid-template-columns:1fr;
+      }
+
+      .section-title h2{
+        font-size:38px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+
+    <div class="logo">
+      Ramu's Home Improvement
+      <span>EST 2014</span>
+    </div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+  </header>
+
+  <!-- HOME -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <h1>Foundation to Perfection</h1>
+
+      <p>Transforming visions into reality since 2014</p>
+
+      <a href="#contact" class="hero-btn">Get Started</a>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <div class="section-title">
+
+      <h2>About Us</h2>
+
+      <p>
+        Ramu's Home Improvement delivers premium plumbing and construction solutions
+        across residential, commercial and industrial developments.
+      </p>
+
+    </div>
+
+    <div class="about">
+
+      <img src="images/Screenshot_20260512_193133_WhatsApp.jpg">
+       <h3>Meet Our CEO</h3>
+
+      <div class="about-text">
+
+        <h3>Professional Construction & Plumbing Experts</h3><br>
+
+
+       
+
+        <p>
+          We pride ourselves on delivering high-quality projects
+          with modern designs, expert craftsmanship and durable systems.
+        </p>
+
+        <p>
+          From commercial developments to luxury residential plumbing,
+          our team ensures excellence in every project.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+
+  <section id="projects">
+
+    <div class="section-title">
+
+      <h2>Projects</h2>
+
+      <p>
+        Explore our latest residential and commercial developments.
+      </p>
+
+    </div>
+
+    <div class="projects-grid">
+
+      <div class="project-card">
+
+        <h3>Residential & Commercial Building Services</h3>
+
+        <p>
+          Modern home plumbing and construction systems
+          built with precision and quality workmanship.
+        </p>
+
+        <div class="project-tags">
+          <span>Building Construction</span>
+          <span>Plumbing</span>
+          <span>Electrical Work</span>
+          <span>Ceiling Installation</span>
+          <span>Painting</span>
+          <span>Paving</span>
+        </div>
+
+      </div>
+
+      <div class="project-card">
+
+        <h3>Industrial & Commercial Building Services</h3>
+
+        <p>
+          Functional and durable plumbing infrastructure
+          for commercial and industrial developments.
+        </p>
+
+        <div class="project-tags">
+          <span>Commercial Building Construction</span>
+          <span>Industrial Building Construction</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+<!-- GALLERY -->
+
+<section id="gallery">
+
+  <div class="section-title">
+
+    <h2>Gallery</h2>
+
+    <p>
+      Some of our completed construction and plumbing projects.
+    </p>
+
+  </div>
+
+  <div class="gallery">
+
+    <!-- BUILDING -->
+
+    <div class="gallery-card" onclick="openGallery(buildingImages)">
+
+<img src="images/buildings/WhatsApp Image 2026-06-17 at 01.08.42 (1).jpeg">
+<img src="images/buildings/WhatsApp Image 2026-06-17 at 01.08.43 (2).jpeg">
+<img src="images/buildings/WhatsApp Image 2026-06-17 at 01.08.43.jpeg">
+<img src="images/buildings/WhatsApp Image 2026-06-17 at 01.08.44 (2).jpeg">
+
+ <img src="images/buildings/WhatsApp Image 2026-06-17 at 01.08.44.jpeg">
+
+<img src="images/buildings/WhatsApp Image 2026-06-17 at 01.08.45 (2).jpeg.jpeg">
+
+<img src="images/buildings/WhatsApp Image 2026-06-17 at 01.08.45.jpeg">
+
+<img src="images/buildings/WhatsApp Image 2026-06-17 at 01.08.46.jpeg">
+
+<img src="images/buildings/WhatsApp Image 2026-06-17 at 01.08.47.jpeg">
+
+
+      
+
+      <div class="gallery-overlay">
+        <h3>Building</h3>
+      </div>
+
+    </div>
+
+    <!-- PLUMBING -->
+
+    <div class="gallery-card" onclick="openGallery(plumbingImages)">
+
+<img src="images/plumbing/1.jpg">
+<img src="images/Screenshot_20260512_193133_WhatsApp.jpg">
+<img src="images/plumbing/3.jpg">
+<img src="images/plumbing/4.jpg">
+<img src="images/plumbing/5.jpg">
+<img src="images/plumbing/6.jpg">
+<img src="images/plumbing/7.jpg">
+      <div class="gallery-overlay">
+        <h3>Plumbing</h3>
+      </div>
+
+    </div>
+
+    <!-- ROAD -->
+
+    <div class="gallery-card" onclick="openGallery(roadImages)">
+
+      <img src="images/Road/WhatsApp Image 2026-06-17 at 01.37.04 (2).jpeg">
+
+      <img src="images/Road/WhatsApp Image 2026-06-17 at 01.37.05 (1).jpeg">
+      <img src="images/Road/WhatsApp Image 2026-06-17 at 01.37.05.jpeg">
+      <img src="images/RoadW/hatsApp Image 2026-06-17 at 01.37.06 (1).jpeg">
+      <img src="images/Road/WhatsApp Image 2026-06-17 at 01.37.06.jpeg">
+      <img src="images/Road/WhatsApp Image 2026-06-17 at 01.37.07.jpeg">
+      <div class="gallery-overlay">
+        <h3>Road Maintenance</h3>
+      </div>
+
+    </div>
+
+    <!-- CONSTRUCTION 
+
+    <div class="gallery-card" onclick="openGallery(constructionImages)">
+
+      <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200&auto=format&fit=crop">
+
+      <div class="gallery-overlay">
+        <h3>Construction</h3>
+      </div>
+
+    </div> -->
+
+    <!-- PIPELINES -->
+
+    <div class="gallery-card" onclick="openGallery(pipeImages)">
+
+      <img src="images/pipeline/WhatsApp Image 2026-06-17 at 01.37.03 (1).jpeg">
+
+       <img src="images/pipeline/WhatsApp Image 2026-06-17 at 01.37.03.jpeg">
+
+       <img src="images/pipeline/WhatsApp Image 2026-06-17 at 01.37.04 (1).jpeg">
+
+       <img src="images/pipeline/WhatsApp Image 2026-06-17 at 01.37.04.jpeg">
+
+
+      <div class="gallery-overlay">
+        <h3>Pipelines</h3>
+      </div>
+
+    </div>
+
+    <!-- COMMERCIAL 
+
+    <div class="gallery-card" onclick="openGallery(commercialImages)">
+
+      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop">
+
+      <div class="gallery-overlay">
+        <h3>Commercial</h3>
+      </div>
+
+    </div> -->
+
+  </div>
+
+</section>
+
+<!-- LIGHTBOX -->
+
+<div class="lightbox" id="lightbox">
+
+  <span class="close-btn" onclick="closeGallery()">×</span>
+
+  <button class="prev" onclick="changeSlide(-1)">❮</button>
+
+  <img id="lightbox-image" src="">
+
+  <button class="next" onclick="changeSlide(1)">❯</button>
+
+</div>
+
+  
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <div class="section-title">
+
+      <h2>Let's Build Together</h2>
+
+      <p>
+        Contact Ramu's Home Improvement today for your next project.
+      </p>
+
+    </div>
+
+    <div class="contact-wrapper">
+
+      <!-- FORM -->
+
+      <div class="contact-form">
+
+        <h3>Send Us A Message</h3>
+
+        <form>
+
+          <input type="text" placeholder="Full Name">
+
+          <input type="email" placeholder="Email Address">
+
+          <input type="text" placeholder="Phone Number">
+
+          <input type="text" placeholder="Subject">
+
+          <textarea rows="6" placeholder="Tell us about your project"></textarea>
+
+          <button type="submit">Send Message</button>
+
+        </form>
+
+      </div>
+
+      <!-- INFO -->
+
+      <div>
+
+        <div class="contact-box">
+
+          <h4>Phone</h4>
+
+          <p>+27 73 360 1591</p><br>
+          <p>+27 11 472 2604</p><br>
+
+        </div>
+
+        <div class="contact-box">
+
+          <h4>Email</h4>
+
+          <p>thomas@ramushomeimprovement.co.za</p>
+
+        </div>
+
+        <div class="contact-box">
+
+          <h4>Location</h4>
+
+          <p>Johannesburg, South Africa</p>
+
+          <iframe
+          src="https://maps.google.com/maps?q=pretoria&t=&z=13&ie=UTF8&iwloc=&output=embed">
+          </iframe>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    © 2026 Ramu's Home Improvement. All Rights Reserved.
+
+  </footer>
+
+  <script>
+const buildingImages = [
+    "images/buildings/WhatsApp Image 2026-06-17 at 01.08.42 (1).jpeg",
+    "images/buildings/WhatsApp Image 2026-06-17 at 01.08.43 (2).jpeg",
+    "images/buildings/WhatsApp Image 2026-06-17 at 01.08.43.jpeg",
+    "images/buildings/WhatsApp Image 2026-06-17 at 01.08.44 (2).jpeg",
+    "images/buildings/WhatsApp Image 2026-06-17 at 01.08.44.jpeg",
+    "images/buildings/WhatsApp Image 2026-06-17 at 01.08.45 (2).jpeg",
+    "images/buildings/WhatsApp Image 2026-06-17 at 01.08.45.jpeg",
+    "images/buildings/WhatsApp Image 2026-06-17 at 01.08.46.jpeg",
+    "images/buildings/WhatsApp Image 2026-06-17 at 01.08.47.jpeg"
+];
+
+const plumbingImages = [
+    "images/plumbing/1.jpg",
+    "images/plumbing/2.jpg",
+    "images/plumbing/3.jpg",
+    "images/plumbing/4.jpg",
+    "images/plumbing/5.jpg",
+    "images/plumbing/6.jpg",
+    "images/plumbing/7.jpg"
+];
+
+const roadImages = [
+    "images/Road/WhatsApp Image 2026-06-17 at 01.37.04 (2).jpeg",
+    "images/Road/WhatsApp Image 2026-06-17 at 01.37.05 (1).jpeg",
+    "images/Road/WhatsApp Image 2026-06-17 at 01.37.05.jpeg",
+    "images/Road/WhatsApp Image 2026-06-17 at 01.37.06 (1).jpeg",
+    "images/Road/WhatsApp Image 2026-06-17 at 01.37.06.jpeg",
+    "images/Road/WhatsApp Image 2026-06-17 at 01.37.07.jpeg"
+];
+
+const pipeImages = [
+    "images/pipeline/WhatsApp Image 2026-06-17 at 01.37.03 (1).jpeg",
+    "images/pipeline/WhatsApp Image 2026-06-17 at 01.37.03.jpeg",
+    "images/pipeline/WhatsApp Image 2026-06-17 at 01.37.04 (1).jpeg",
+    "images/pipeline/WhatsApp Image 2026-06-17 at 01.37.04.jpeg"
+];
+
+let currentGallery = [];
+let currentIndex = 0;
+
+function openGallery(images) {
+    currentGallery = images;
+    currentIndex = 0;
+
+    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("lightbox-image").src = currentGallery[currentIndex];
+}
+
+function closeGallery() {
+    document.getElementById("lightbox").style.display = "none";
+}
+
+function changeSlide(direction) {
+    currentIndex += direction;
+
+    if (currentIndex < 0) {
+        currentIndex = currentGallery.length - 1;
+    }
+
+    if (currentIndex >= currentGallery.length) {
+        currentIndex = 0;
+    }
+
+    document.getElementById("lightbox-image").src = currentGallery[currentIndex];
+}
+
+document.getElementById("lightbox").addEventListener("click", function(e) {
+    if (e.target === this) {
+        closeGallery();
+    }
+});
+</script>
+</body>
+</html>
